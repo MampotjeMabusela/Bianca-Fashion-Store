@@ -100,61 +100,25 @@
     fadeEls.forEach((el) => el.classList.add("visible"));
   }
 
-  /* Gallery filters */
-  const filterBtns = document.querySelectorAll(".filter-btn");
+  /* Gallery — optional URL filter (no filter buttons on page) */
   const galleryItems = document.querySelectorAll(".gallery-item");
-  const galleryEmpty = document.querySelector(".gallery-empty");
 
-  function applyGalleryFilter(filter, updateUrl) {
-    let visibleCount = 0;
-
-    filterBtns.forEach((b) => {
-      b.classList.toggle("active", b.dataset.filter === filter);
-    });
-
+  function applyGalleryFilter(filter) {
     galleryItems.forEach((item) => {
       const category = item.dataset.category;
       const show = filter === "all" || category === filter;
       item.classList.toggle("hidden", !show);
-      if (show) visibleCount += 1;
     });
-
-    if (galleryEmpty) {
-      galleryEmpty.classList.toggle("is-visible", visibleCount === 0);
-    }
-
-    if (updateUrl && window.history?.replaceState) {
-      const url = new URL(window.location.href);
-      if (filter === "all") {
-        url.searchParams.delete("filter");
-      } else {
-        url.searchParams.set("filter", filter);
-      }
-      window.history.replaceState({}, "", url);
-    }
   }
 
-  if (filterBtns.length) {
-    filterBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        applyGalleryFilter(btn.dataset.filter, true);
-      });
-    });
-
+  if (galleryItems.length) {
     const params = new URLSearchParams(window.location.search);
     const initial =
       params.get("filter") ||
       (window.location.hash || "").replace("#", "").trim();
-    const validFilters = ["all", "mens", "womens", "accessories", "loungewear"];
+    const validFilters = ["mens", "womens", "accessories", "loungewear"];
     if (initial && validFilters.includes(initial)) {
-      applyGalleryFilter(initial, false);
-    }
-
-    const emptyReset = document.querySelector(".gallery-empty-reset");
-    if (emptyReset) {
-      emptyReset.addEventListener("click", () => {
-        applyGalleryFilter("all", true);
-      });
+      applyGalleryFilter(initial);
     }
   }
 

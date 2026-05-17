@@ -782,6 +782,9 @@ section {
 
 .founder-image {
   position: relative;
+  width: 50%;
+  max-width: 280px;
+  margin-inline: auto;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);

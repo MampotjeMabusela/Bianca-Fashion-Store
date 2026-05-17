@@ -12,6 +12,7 @@
   <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header scrolled">
     <div class="header-inner">
       <a href="index.html" class="logo" aria-label="Bianca Fashion Store home">
@@ -30,8 +31,12 @@
     </div>
   </header>
 
-  <main>
-    <section class="page-hero">
+  <main id="main-content">
+    <section class="page-hero page-hero--with-bg">
+      <div class="page-hero-bg" aria-hidden="true">
+        <img src="images/floral-ruffle-maxi.png" alt="">
+      </div>
+      <div class="page-hero-overlay" aria-hidden="true"></div>
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
@@ -76,8 +81,25 @@
             <div class="contact-detail-icon" aria-hidden="true">&#9872;</div>
             <div>
               <strong>Location</strong>
-              <span>Bianca Fashion Shop, Lagos, Nigeria</span>
+              <span>137 Pebble Rock Golf Estate &amp; bushveld Pretoria, South Africa</span>
             </div>
+          </div>
+
+          <div class="contact-map fade-in">
+            <iframe
+              title="Map pin at Pebble Rock Golf and Bushveld Estate, Roodeplaat"
+              src="https://maps.google.com/maps?q=-25.614153,28.389766&amp;hl=en&amp;z=17&amp;output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+            <p class="contact-map-caption">Pebble Rock Golf &amp; Bushveld Estate · 137, Roodeplaat</p>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&amp;destination=-25.614153,28.389766"
+              class="contact-map-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Get directions to the estate</a>
           </div>
 
           <div class="contact-hours">
@@ -93,6 +115,7 @@
         <div class="contact-form-wrap fade-in">
           <h2>Send a Message</h2>
           <p>Fill in the form below and we will respond within 24 hours.</p>
+          <p class="contact-whatsapp-prompt">Prefer WhatsApp? <a href="https://wa.me/27604986140?text=Hi%20Bianca%2C%20I%27d%20like%20to%20enquire." target="_blank" rel="noopener noreferrer">Message us directly</a> — we typically reply within a few hours.</p>
           <div class="form-success" role="status" aria-live="polite"></div>
           <form id="contact-form" novalidate>
             <input type="text" name="botcheck" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -132,12 +155,72 @@
               <label for="message">Your Message</label>
               <textarea id="message" name="Message" required placeholder="Tell us about your occasion, preferred colours, sizes, or any questions..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <p class="form-privacy-note">By submitting this form you agree to our <a href="privacy.html">Privacy Policy</a>. We use your details only to respond to your enquiry.</p>
+            <div class="contact-actions-row">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+              <a href="https://wa.me/27604986140?text=Hi%20Bianca%2C%20I%27d%20like%20to%20book%20a%20fitting." class="btn-whatsapp-inline" target="_blank" rel="noopener noreferrer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Chat on WhatsApp
+              </a>
+            </div>
           </form>
         </div>
       </div>
     </section>
+
+    <section class="services-hub section-padded" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Our Services</span>
+          <h2 id="services-heading" class="section-title">What We Create</h2>
+          <p class="section-subtitle">Explore each service in our gallery — every piece is made to measure in your chosen colours.</p>
+        </div>
+        <div class="journey-services fade-in">
+          <a href="gallery.html?filter=mens" class="journey-service-card">
+            <h3>Men's Senator Suits</h3>
+            <p>Weddings, church &amp; corporate</p>
+          </a>
+          <a href="gallery.html?filter=womens" class="journey-service-card">
+            <h3>Women's Custom Wear</h3>
+            <p>Evening, office &amp; occasion</p>
+          </a>
+          <a href="gallery.html?filter=loungewear" class="journey-service-card">
+            <h3>Loungewear &amp; Sets</h3>
+            <p>Comfort with street-style polish</p>
+          </a>
+          <a href="gallery.html?filter=accessories" class="journey-service-card">
+            <h3>Accessories</h3>
+            <p>Bags, heels &amp; finishing touches</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-preview" aria-labelledby="gallery-preview-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Portfolio</span>
+          <h2 id="gallery-preview-heading" class="section-title">As Seen in Our Gallery</h2>
+          <p class="section-subtitle">A glimpse of recent work — tap any image to explore the full collection.</p>
+        </div>
+        <div class="gallery-preview-grid fade-in">
+          <a href="gallery.html?filter=mens"><img src="images/senator-navy.png" alt="Senator suit" loading="lazy" decoding="async"></a>
+          <a href="gallery.html?filter=womens"><img src="images/floral-ruffle-maxi.png" alt="Evening wear" loading="lazy" decoding="async"></a>
+          <a href="gallery.html?filter=womens"><img src="images/wrap-dress-colors.png" alt="Wrap dresses" loading="lazy" decoding="async"></a>
+          <a href="gallery.html?filter=accessories"><img src="images/crescent-bags-colors.png" alt="Accessories" loading="lazy" decoding="async"></a>
+        </div>
+        <p class="text-center fade-in"><a href="gallery.html" class="btn btn-secondary">View Full Gallery</a></p>
+      </div>
+    </section>
   </main>
+
+  <a href="https://wa.me/27604986140?text=Hi%20Bianca%2C%20I%27d%20like%20to%20book%20a%20fitting." class="wa-fab" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <div class="mobile-cta-bar" role="navigation" aria-label="Quick actions">
+    <a href="https://wa.me/27604986140?text=Hi%20Bianca%2C%20I%27d%20like%20to%20book%20a%20fitting." class="btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="contact.html" class="btn-contact">Book Fitting</a>
+  </div>
 
   <footer class="site-footer">
     <div class="container">
@@ -169,6 +252,13 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
+        <div class="footer-col footer-col-legal">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
         <div class="footer-col">
           <h4>Collections</h4>
           <ul>
@@ -191,6 +281,7 @@
         <p>&copy; 2026 Bianca Fashion Shop. All rights reserved.</p>
         <p>Crafted with elegance</p>
       </div>
+      <p class="footer-developer">This Website Was Developed By Mampotje Mabusela</p>
     </div>
   </footer>
 

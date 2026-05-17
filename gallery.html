@@ -12,6 +12,7 @@
   <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header scrolled">
     <div class="header-inner">
       <a href="index.html" class="logo" aria-label="Bianca Fashion Store home">
@@ -30,8 +31,12 @@
     </div>
   </header>
 
-  <main>
-    <section class="page-hero">
+  <main id="main-content">
+    <section class="page-hero page-hero--with-bg">
+      <div class="page-hero-bg" aria-hidden="true">
+        <img src="images/wrap-dress-colors.png" alt="">
+      </div>
+      <div class="page-hero-overlay" aria-hidden="true"></div>
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
@@ -50,10 +55,17 @@
           <button class="filter-btn" data-filter="mens" type="button">Men's Wear</button>
           <button class="filter-btn" data-filter="womens" type="button">Women's Wear</button>
           <button class="filter-btn" data-filter="accessories" type="button">Accessories</button>
+          <button class="filter-btn" data-filter="loungewear" type="button">Loungewear</button>
+        </div>
+
+        <div id="gallery-empty" class="gallery-empty" role="status" aria-live="polite">
+          <h3>No pieces in this category yet</h3>
+          <p>Try another filter or view our full collection.</p>
+          <button type="button" class="btn btn-primary gallery-empty-reset">Show All</button>
         </div>
 
         <div class="gallery-grid">
-          <article class="gallery-item tall fade-in" data-category="mens">
+          <article class="gallery-item fade-in" data-category="mens">
             <img src="images/hero-senator.png" alt="Navy and cyan Senator suit with modern accents">
             <div class="gallery-caption">
               <h3>Cyan Accent Senator</h3>
@@ -95,11 +107,99 @@
               <span>Men's Wear</span>
             </div>
           </article>
+          <article class="gallery-item fade-in" data-category="womens">
+            <img src="images/floral-ruffle-maxi.png" alt="Floral ruffle maxi dress">
+            <div class="gallery-caption">
+              <h3>Floral Ruffle Maxi</h3>
+              <span>Women's Wear</span>
+            </div>
+          </article>
+          <article class="gallery-item fade-in" data-category="womens">
+            <img src="images/denim-two-piece.png" alt="Denim co-ord set">
+            <div class="gallery-caption">
+              <h3>Denim Co-ord Set</h3>
+              <span>Women's Wear</span>
+            </div>
+          </article>
+          <article class="gallery-item fade-in" data-category="womens">
+            <img src="images/wrap-dress-colors.png" alt="Wrap dress in red, olive, emerald and black">
+            <div class="gallery-caption">
+              <h3>Wrap Dress — 4 Colours</h3>
+              <span>Women's Wear</span>
+            </div>
+          </article>
+          <article class="gallery-item fade-in" data-category="womens">
+            <img src="images/off-shoulder-maxi-colors.png" alt="Off-shoulder maxi dress colour range">
+            <div class="gallery-caption">
+              <h3>Off-Shoulder Maxi Range</h3>
+              <span>Women's Wear</span>
+            </div>
+          </article>
+          <article class="gallery-item fade-in" data-category="womens">
+            <img src="images/halter-chiffon-mini-colors.png" alt="Chiffon halter mini dress colours">
+            <div class="gallery-caption">
+              <h3>Chiffon Halter Mini</h3>
+              <span>Women's Wear</span>
+            </div>
+          </article>
+          <article class="gallery-item fade-in" data-category="womens">
+            <img src="images/fringe-mini-collage.png" alt="Fringe mock-neck mini dress collection">
+            <div class="gallery-caption">
+              <h3>Fringe Mock-Neck Mini</h3>
+              <span>Women's Wear</span>
+            </div>
+          </article>
+          <article class="gallery-item fade-in" data-category="womens">
+            <img src="images/fringe-knit-mini-colors.png" alt="Fringe knit mini dress five colours">
+            <div class="gallery-caption">
+              <h3>Fringe Knit Mini</h3>
+              <span>Women's Wear</span>
+            </div>
+          </article>
+          <article class="gallery-item fade-in" data-category="loungewear">
+            <img src="images/athletic-zip-set-colors.png" alt="Athletic zip-up set four colours">
+            <div class="gallery-caption">
+              <h3>Athletic Zip Set</h3>
+              <span>Loungewear</span>
+            </div>
+          </article>
+          <article class="gallery-item fade-in" data-category="loungewear">
+            <img src="images/loungewear-set-colors.png" alt="Loungewear sweatshirt and jogger sets">
+            <div class="gallery-caption">
+              <h3>Cozy Loungewear Set</h3>
+              <span>Loungewear</span>
+            </div>
+          </article>
+          <article class="gallery-item fade-in" data-category="loungewear">
+            <img src="images/oversized-tracksuit-colors.png" alt="Oversized tracksuit four colours">
+            <div class="gallery-caption">
+              <h3>Oversized Tracksuit</h3>
+              <span>Loungewear</span>
+            </div>
+          </article>
+          <article class="gallery-item fade-in" data-category="accessories">
+            <img src="images/crescent-bags-colors.png" alt="Crescent hobo handbag four colours">
+            <div class="gallery-caption">
+              <h3>Crescent Hobo Bag</h3>
+              <span>Accessories</span>
+            </div>
+          </article>
+          <article class="gallery-item fade-in" data-category="mens">
+            <img src="images/ceo-founder.png" alt="Bianca Mandela, founder and lead designer">
+            <div class="gallery-caption">
+              <h3>Meet the Founder</h3>
+              <span>Bianca Fashion Shop</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="cta-banner">
+    <section class="cta-banner cta-banner--with-bg">
+      <div class="cta-banner-bg" aria-hidden="true">
+        <img src="images/floral-ruffle-maxi.png" alt="">
+      </div>
+      <div class="cta-banner-overlay" aria-hidden="true"></div>
       <div class="container fade-in">
         <h2>Love What You See?</h2>
         <p>Contact us to order a custom piece or schedule your private fitting.</p>
@@ -110,7 +210,22 @@
 
   <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
     <button class="lightbox-close" type="button" aria-label="Close preview">&times;</button>
-    <img src="" alt="">
+    <div class="lightbox-inner">
+      <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button>
+      <img src="" alt="">
+      <button type="button" class="lightbox-nav lightbox-next" aria-label="Next image">&#8250;</button>
+    </div>
+    <div class="lightbox-caption" aria-live="polite"></div>
+  </div>
+
+  <a href="https://wa.me/27604986140?text=Hi%20Bianca%2C%20I%27d%20like%20to%20book%20a%20fitting." class="wa-fab" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+  <div class="mobile-cta-bar" role="navigation" aria-label="Quick actions">
+    <a href="https://wa.me/27604986140?text=Hi%20Bianca%2C%20I%27d%20like%20to%20book%20a%20fitting." class="btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="contact.html" class="btn-contact">Book Fitting</a>
   </div>
 
   <footer class="site-footer">
@@ -143,6 +258,13 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
+        <div class="footer-col footer-col-legal">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
         <div class="footer-col">
           <h4>Collections</h4>
           <ul>
@@ -165,6 +287,7 @@
         <p>&copy; 2026 Bianca Fashion Shop. All rights reserved.</p>
         <p>Crafted with elegance</p>
       </div>
+      <p class="footer-developer">This Website Was Developed By Mampotje Mabusela</p>
     </div>
   </footer>
 

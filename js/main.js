@@ -1,6 +1,30 @@
 (function () {
   "use strict";
 
+  /* Prefer WebP when available (PNG fallback via onerror) */
+  (function enableWebpImages() {
+    const test = new Image();
+    test.onload = test.onerror = function () {
+      if (test.height !== 2) return;
+      document
+        .querySelectorAll('img[src*="/images/"][src$=".png"], img[src*="images/"][src$=".png"]')
+        .forEach((img) => {
+          if (img.classList.contains("logo-img") || img.closest(".logo")) return;
+          const png = img.getAttribute("src");
+          if (!png || img.dataset.webpDone) return;
+          img.dataset.webpDone = "1";
+          img.dataset.pngFallback = png;
+          img.src = png.replace(/\.png$/, ".webp");
+          img.addEventListener("error", function onWebpError() {
+            if (img.dataset.pngFallback) img.src = img.dataset.pngFallback;
+            img.removeEventListener("error", onWebpError);
+          });
+        });
+    };
+    test.src =
+      "data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA=";
+  })();
+
   const header = document.querySelector(".site-header");
   const nav = document.querySelector(".main-nav");
   const toggle = document.querySelector(".nav-toggle");
@@ -34,7 +58,8 @@
   /* Active nav link */
   const currentPage =
     window.location.pathname.split("/").pop() || "index.html";
-  navLinks.forEach((link) => {
+  const allNavLinks = document.querySelectorAll(".main-nav a[href]");
+  allNavLinks.forEach((link) => {
     const href = link.getAttribute("href");
     if (
       href === currentPage ||
@@ -43,6 +68,18 @@
       link.classList.add("active");
     }
   });
+
+  /* Stagger fade-in delays on grids */
+  document
+    .querySelectorAll(
+      ".collection-grid, .gallery-grid, .why-grid, .testimonials-grid, .lookbook-bento"
+    )
+    .forEach((grid) => {
+      grid.querySelectorAll(".fade-in").forEach((el, i) => {
+        const n = (i % 6) + 1;
+        el.classList.add(`stagger-${n}`);
+      });
+    });
 
   /* Scroll reveal */
   const fadeEls = document.querySelectorAll(".fade-in");
@@ -66,36 +103,102 @@
   /* Gallery filters */
   const filterBtns = document.querySelectorAll(".filter-btn");
   const galleryItems = document.querySelectorAll(".gallery-item");
+  const galleryEmpty = document.querySelector(".gallery-empty");
 
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const filter = btn.dataset.filter;
+  function applyGalleryFilter(filter, updateUrl) {
+    let visibleCount = 0;
 
-      filterBtns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
+    filterBtns.forEach((b) => {
+      b.classList.toggle("active", b.dataset.filter === filter);
+    });
 
-      galleryItems.forEach((item) => {
-        const category = item.dataset.category;
-        const show = filter === "all" || category === filter;
-        item.classList.toggle("hidden", !show);
+    galleryItems.forEach((item) => {
+      const category = item.dataset.category;
+      const show = filter === "all" || category === filter;
+      item.classList.toggle("hidden", !show);
+      if (show) visibleCount += 1;
+    });
+
+    if (galleryEmpty) {
+      galleryEmpty.classList.toggle("is-visible", visibleCount === 0);
+    }
+
+    if (updateUrl && window.history?.replaceState) {
+      const url = new URL(window.location.href);
+      if (filter === "all") {
+        url.searchParams.delete("filter");
+      } else {
+        url.searchParams.set("filter", filter);
+      }
+      window.history.replaceState({}, "", url);
+    }
+  }
+
+  if (filterBtns.length) {
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        applyGalleryFilter(btn.dataset.filter, true);
       });
     });
-  });
+
+    const params = new URLSearchParams(window.location.search);
+    const initial =
+      params.get("filter") ||
+      (window.location.hash || "").replace("#", "").trim();
+    const validFilters = ["all", "mens", "womens", "accessories", "loungewear"];
+    if (initial && validFilters.includes(initial)) {
+      applyGalleryFilter(initial, false);
+    }
+
+    const emptyReset = document.querySelector(".gallery-empty-reset");
+    if (emptyReset) {
+      emptyReset.addEventListener("click", () => {
+        applyGalleryFilter("all", true);
+      });
+    }
+  }
 
   /* Lightbox */
   const lightbox = document.querySelector(".lightbox");
   const lightboxImg = document.querySelector(".lightbox img");
   const lightboxClose = document.querySelector(".lightbox-close");
+  const lightboxCaption = document.querySelector(".lightbox-caption");
+  const lightboxPrev = document.querySelector(".lightbox-prev");
+  const lightboxNext = document.querySelector(".lightbox-next");
 
-  if (lightbox && lightboxImg) {
+  if (lightbox && lightboxImg && galleryItems.length) {
+    const visibleItems = () =>
+      [...galleryItems].filter((item) => !item.classList.contains("hidden"));
+    let currentIndex = 0;
+
+    function updateLightboxCaption(item) {
+      if (!lightboxCaption) return;
+      const title = item.querySelector(".gallery-caption h3");
+      const cat = item.querySelector(".gallery-caption span");
+      lightboxCaption.innerHTML = title
+        ? `<h3>${title.textContent}</h3>${cat ? `<span>${cat.textContent}</span>` : ""}`
+        : "";
+    }
+
+    function openLightboxAt(index) {
+      const items = visibleItems();
+      if (!items.length) return;
+      currentIndex = ((index % items.length) + items.length) % items.length;
+      const item = items[currentIndex];
+      const img = item.querySelector("img");
+      if (!img) return;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      updateLightboxCaption(item);
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
     galleryItems.forEach((item) => {
       item.addEventListener("click", () => {
-        const img = item.querySelector("img");
-        if (!img) return;
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add("open");
-        document.body.style.overflow = "hidden";
+        const items = visibleItems();
+        currentIndex = Math.max(0, items.indexOf(item));
+        openLightboxAt(currentIndex);
       });
     });
 
@@ -105,13 +208,28 @@
     }
 
     if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+    if (lightboxPrev) {
+      lightboxPrev.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openLightboxAt(currentIndex - 1);
+      });
+    }
+    if (lightboxNext) {
+      lightboxNext.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openLightboxAt(currentIndex + 1);
+      });
+    }
+
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) closeLightbox();
     });
+
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && lightbox.classList.contains("open")) {
-        closeLightbox();
-      }
+      if (!lightbox.classList.contains("open")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") openLightboxAt(currentIndex - 1);
+      if (e.key === "ArrowRight") openLightboxAt(currentIndex + 1);
     });
   }
 
@@ -133,23 +251,57 @@
     successMsg.textContent = message;
   }
 
+  function getFieldErrorEl(field) {
+    const group = field.closest(".form-group");
+    if (!group) return null;
+    let el = group.querySelector(".form-error-msg");
+    if (!el) {
+      el = document.createElement("span");
+      el.className = "form-error-msg";
+      el.setAttribute("role", "alert");
+      group.appendChild(el);
+    }
+    return el;
+  }
+
+  function setFieldError(field, message) {
+    const group = field.closest(".form-group");
+    const err = getFieldErrorEl(field);
+    if (group) group.classList.toggle("is-invalid", Boolean(message));
+    if (err) err.textContent = message || "";
+    field.style.borderColor = message ? "#b91c3c" : "";
+  }
+
+  function clearFormErrors() {
+    form.querySelectorAll(".form-group").forEach((g) => {
+      g.classList.remove("is-invalid");
+      const err = g.querySelector(".form-error-msg");
+      if (err) err.textContent = "";
+    });
+    form.querySelectorAll("input, select, textarea").forEach((f) => {
+      f.style.borderColor = "";
+    });
+  }
+
   function validateContactForm() {
-    const required = form.querySelectorAll("[required]");
+    clearFormErrors();
     let valid = true;
 
-    required.forEach((field) => {
+    form.querySelectorAll("[required]").forEach((field) => {
       if (!field.value.trim()) {
         valid = false;
-        field.style.borderColor = "#b91c3c";
-      } else {
-        field.style.borderColor = "";
+        const label =
+          field.labels?.[0]?.textContent ||
+          field.name ||
+          "This field";
+        setFieldError(field, `${label} is required.`);
       }
     });
 
     const email = form.querySelector('[type="email"]');
-    if (email && email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+    if (email?.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
       valid = false;
-      email.style.borderColor = "#b91c3c";
+      setFieldError(email, "Please enter a valid email address.");
     }
 
     return valid;
@@ -208,6 +360,27 @@
   }
 
   if (form) {
+    form.querySelectorAll("input, select, textarea").forEach((field) => {
+      field.addEventListener("blur", () => {
+        if (field.name === "botcheck") return;
+        if (field.hasAttribute("required") && !field.value.trim()) {
+          const label =
+            field.labels?.[0]?.textContent || field.name || "This field";
+          setFieldError(field, `${label} is required.`);
+          return;
+        }
+        if (
+          field.type === "email" &&
+          field.value &&
+          !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)
+        ) {
+          setFieldError(field, "Please enter a valid email address.");
+          return;
+        }
+        setFieldError(field, "");
+      });
+    });
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -224,7 +397,9 @@
 
       if (submitBtn) {
         submitBtn.disabled = true;
+        submitBtn.dataset.label = submitBtn.textContent;
         submitBtn.textContent = "Sending…";
+        submitBtn.classList.add("is-loading");
       }
 
       try {
@@ -245,7 +420,8 @@
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = "Send Message";
+          submitBtn.textContent = submitBtn.dataset.label || "Send Message";
+          submitBtn.classList.remove("is-loading");
         }
         setTimeout(() => {
           if (successMsg) {

@@ -12,6 +12,7 @@
   <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="logo" aria-label="Bianca Fashion Store home">
@@ -30,10 +31,10 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero">
       <div class="hero-bg">
-        <img src="images/hero-senator.png" alt="Custom navy and cyan Senator suit on display">
+        <img src="images/floral-ruffle-maxi.png" alt="Floral ruffle maxi dress — Bianca Fashion Shop evening wear">
       </div>
       <div class="hero-overlay"></div>
       <div class="container hero-content">
@@ -43,6 +44,20 @@
         <div class="hero-actions">
           <a href="gallery.html" class="btn btn-primary">Explore Collection</a>
           <a href="about.html" class="btn btn-outline">Our Story</a>
+        </div>
+        <div class="hero-trust" aria-label="Our track record">
+          <div class="hero-trust-item">
+            <strong>8+</strong>
+            <span>Years Experience</span>
+          </div>
+          <div class="hero-trust-item">
+            <strong>500+</strong>
+            <span>Happy Clients</span>
+          </div>
+          <div class="hero-trust-item">
+            <strong>100%</strong>
+            <span>Custom Made</span>
+          </div>
         </div>
       </div>
       <div class="hero-scroll" aria-hidden="true">
@@ -58,41 +73,130 @@
           <h2 class="section-title">Curated for You</h2>
           <p class="section-subtitle">Discover our signature ranges — each piece tailored with precision and passion for African fashion excellence.</p>
         </div>
-        <div class="collection-grid">
+        <div class="collection-grid collection-grid--six">
           <article class="collection-card fade-in">
             <img src="images/senator-navy.png" alt="Classic navy Senator suit">
             <div class="collection-overlay">
               <h3>Men's Senator Suits</h3>
               <p>Sharp, sophisticated tailoring for weddings, church and corporate events.</p>
-              <a href="gallery.html" class="collection-link">View Collection</a>
+              <a href="gallery.html?filter=mens" class="collection-link">View Collection</a>
             </div>
           </article>
           <article class="collection-card fade-in">
-            <img src="images/dress-magenta.png" alt="Tiered magenta evening dress">
+            <img src="images/floral-ruffle-maxi.png" alt="Floral ruffle maxi dress" loading="lazy" decoding="async">
             <div class="collection-overlay">
-              <h3>Women's Evening Wear</h3>
-              <p>Flowing silhouettes and bold colours for unforgettable moments.</p>
-              <a href="gallery.html" class="collection-link">View Collection</a>
+              <h3>Evening &amp; Occasion</h3>
+              <p>Statement gowns and ruffled silhouettes for your most memorable nights.</p>
+              <a href="gallery.html?filter=womens" class="collection-link">View Collection</a>
             </div>
           </article>
           <article class="collection-card fade-in">
-            <img src="images/heels-silver.png" alt="Silver rhinestone stiletto heels">
+            <img src="images/wrap-dress-colors.png" alt="Wrap dress collection in multiple colours">
+            <div class="collection-overlay">
+              <h3>Office &amp; Day Dresses</h3>
+              <p>Elegant wrap styles tailored in your choice of rich, refined hues.</p>
+              <a href="gallery.html?filter=womens" class="collection-link">View Collection</a>
+            </div>
+          </article>
+          <article class="collection-card fade-in">
+            <img src="images/denim-two-piece.png" alt="Denim co-ord set">
+            <div class="collection-overlay">
+              <h3>Casual Chic</h3>
+              <p>Contemporary denim sets and relaxed looks with polished finishing.</p>
+              <a href="gallery.html?filter=womens" class="collection-link">View Collection</a>
+            </div>
+          </article>
+          <article class="collection-card fade-in">
+            <img src="images/oversized-tracksuit-colors.png" alt="Oversized loungewear tracksuit collection">
+            <div class="collection-overlay">
+              <h3>Loungewear</h3>
+              <p>Oversized comfort meets street-style — custom-made in your favourite shades.</p>
+              <a href="gallery.html?filter=loungewear" class="collection-link">View Collection</a>
+            </div>
+          </article>
+          <article class="collection-card fade-in">
+            <img src="images/crescent-bags-colors.png" alt="Crescent handbag collection">
             <div class="collection-overlay">
               <h3>Accessories</h3>
-              <p>Statement heels, gele, and finishing touches to complete your look.</p>
-              <a href="gallery.html" class="collection-link">View Collection</a>
+              <p>Handbags, heels, and finishing touches to complete every ensemble.</p>
+              <a href="gallery.html?filter=accessories" class="collection-link">View Collection</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
+    <section class="lookbook" aria-labelledby="lookbook-heading">
+      <div class="container">
+        <div class="lookbook-header fade-in">
+          <span class="section-label">Lookbook</span>
+          <h2 id="lookbook-heading" class="section-title">Made in Your Colour</h2>
+          <p class="section-subtitle">Every design is available in multiple shades — choose your palette and we tailor it to you.</p>
+        </div>
+        <div class="lookbook-bento">
+          <a href="gallery.html?filter=womens" class="lookbook-tile lookbook-tile--hero fade-in">
+            <img src="images/off-shoulder-maxi-colors.png" alt="Off-shoulder maxi dress range in cream, red, pink and brown">
+            <div class="lookbook-tile-overlay">
+              <h3>Evening Maxi Collection</h3>
+              <span>Women's Wear</span>
+            </div>
+          </a>
+          <a href="gallery.html?filter=womens" class="lookbook-tile lookbook-tile--tall fade-in">
+            <img src="images/halter-chiffon-mini-colors.png" alt="Chiffon halter mini dress colour range">
+            <div class="lookbook-tile-overlay">
+              <h3>Chiffon Halter Minis</h3>
+              <span>Summer Edit</span>
+            </div>
+          </a>
+          <a href="gallery.html?filter=womens" class="lookbook-tile lookbook-tile--wide fade-in">
+            <img src="images/fringe-knit-mini-colors.png" alt="Fringe knit mini dress in five colours">
+            <div class="lookbook-tile-overlay">
+              <h3>Fringe Knit Party Dress</h3>
+              <span>5 Colourways</span>
+            </div>
+          </a>
+          <a href="gallery.html?filter=loungewear" class="lookbook-tile lookbook-tile--half fade-in">
+            <img src="images/athletic-zip-set-colors.png" alt="Athletic zip-up set in four colours">
+            <div class="lookbook-tile-overlay">
+              <h3>Athletic Zip Sets</h3>
+              <span>Loungewear</span>
+            </div>
+          </a>
+          <a href="gallery.html?filter=loungewear" class="lookbook-tile lookbook-tile--third fade-in">
+            <img src="images/loungewear-set-colors.png" alt="Cozy loungewear co-ord sets">
+            <div class="lookbook-tile-overlay">
+              <h3>Cozy Sets</h3>
+              <span>Loungewear</span>
+            </div>
+          </a>
+          <a href="gallery.html?filter=womens" class="lookbook-tile lookbook-tile--third fade-in">
+            <img src="images/fringe-mini-collage.png" alt="Fringe mock-neck mini dress collection">
+            <div class="lookbook-tile-overlay">
+              <h3>Fringe Mini Edit</h3>
+              <span>Party Wear</span>
+            </div>
+          </a>
+          <a href="gallery.html?filter=accessories" class="lookbook-tile lookbook-tile--third fade-in">
+            <img src="images/heels-silver.png" alt="Silver rhinestone heels">
+            <div class="lookbook-tile-overlay">
+              <h3>Statement Heels</h3>
+              <span>Accessories</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="why-us">
+      <div class="why-us-bg" aria-hidden="true">
+        <img src="images/denim-two-piece.png" alt="">
+      </div>
+      <div class="why-us-overlay" aria-hidden="true"></div>
       <div class="container">
         <div class="section-header fade-in">
-          <span class="section-label" style="color: var(--cyan);">Why Bianca</span>
+          <span class="section-label section-label--light">Why Bianca</span>
           <h2 class="section-title">The Bianca Difference</h2>
-          <p class="section-subtitle" style="color: rgba(255,255,255,0.65); margin-inline: auto;">We don't just sell clothing — we craft confidence, culture, and unforgettable style.</p>
+          <p class="section-subtitle section-subtitle--light">We don't just sell clothing — we craft confidence, culture, and unforgettable style.</p>
         </div>
         <div class="why-grid">
           <div class="why-item fade-in">
@@ -116,6 +220,63 @@
             <p>Express options available for weddings, graduations, and special occasions.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Client Love</span>
+          <h2 id="testimonials-heading" class="section-title">What Our Clients Say</h2>
+          <p class="section-subtitle">Real stories from weddings, graduations, and everyday elegance.</p>
+        </div>
+        <div class="testimonials-grid">
+          <article class="testimonial-card fade-in">
+            <blockquote>
+              <p>My Senator suit for my wedding was flawless. Bianca understood exactly what I wanted and delivered beyond expectations.</p>
+            </blockquote>
+            <cite>David O.<span>Wedding Client</span></cite>
+          </article>
+          <article class="testimonial-card fade-in">
+            <blockquote>
+              <p>I ordered a custom wrap dress in three colours for my office wardrobe. The fit is perfect every time — I won't shop anywhere else.</p>
+            </blockquote>
+            <cite>Amara T.<span>Corporate Client</span></cite>
+          </article>
+          <article class="testimonial-card fade-in">
+            <blockquote>
+              <p>From consultation to final fitting, the experience felt personal and luxurious. The fringe mini dress was the star of the party.</p>
+            </blockquote>
+            <cite>Zinhle M.<span>Evening Wear</span></cite>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="instagram-section" aria-labelledby="instagram-heading">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">On Instagram</span>
+          <h2 id="instagram-heading" class="section-title">Follow @biancamandela</h2>
+          <p class="section-subtitle">See the latest looks, colourways, and behind-the-scenes from the studio.</p>
+        </div>
+        <div class="instagram-grid">
+          <a href="https://www.instagram.com/biancamandela/" class="instagram-tile fade-in" target="_blank" rel="noopener noreferrer">
+            <img src="images/fringe-knit-mini-colors.png" alt="Fringe knit mini dress colour range" loading="lazy" decoding="async">
+          </a>
+          <a href="https://www.instagram.com/biancamandela/" class="instagram-tile fade-in" target="_blank" rel="noopener noreferrer">
+            <img src="images/off-shoulder-maxi-colors.png" alt="Off-shoulder maxi collection" loading="lazy" decoding="async">
+          </a>
+          <a href="https://www.instagram.com/biancamandela/" class="instagram-tile fade-in" target="_blank" rel="noopener noreferrer">
+            <img src="images/halter-chiffon-mini-colors.png" alt="Chiffon halter mini dresses" loading="lazy" decoding="async">
+          </a>
+          <a href="https://www.instagram.com/biancamandela/" class="instagram-tile fade-in" target="_blank" rel="noopener noreferrer">
+            <img src="images/crescent-bags-colors.png" alt="Crescent handbag collection" loading="lazy" decoding="async">
+          </a>
+        </div>
+        <p class="instagram-cta fade-in">
+          <a href="https://www.instagram.com/biancamandela/" target="_blank" rel="noopener noreferrer">Follow @biancamandela on Instagram →</a>
+        </p>
       </div>
     </section>
 
@@ -151,7 +312,11 @@
       </div>
     </section>
 
-    <section class="cta-banner">
+    <section class="cta-banner cta-banner--with-bg">
+      <div class="cta-banner-bg" aria-hidden="true">
+        <img src="images/halter-chiffon-mini-colors.png" alt="">
+      </div>
+      <div class="cta-banner-overlay" aria-hidden="true"></div>
       <div class="container fade-in">
         <h2>Ready for Your Perfect Fit?</h2>
         <p>Book a complimentary consultation today and let us bring your vision to life.</p>
@@ -159,6 +324,16 @@
       </div>
     </section>
   </main>
+
+  <a href="https://wa.me/27604986140?text=Hi%20Bianca%2C%20I%27d%20like%20to%20book%20a%20fitting." class="wa-fab" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+  <div class="mobile-cta-bar" role="navigation" aria-label="Quick actions">
+    <a href="https://wa.me/27604986140?text=Hi%20Bianca%2C%20I%27d%20like%20to%20book%20a%20fitting." class="btn-wa" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="contact.html" class="btn-contact">Book Fitting</a>
+  </div>
 
   <footer class="site-footer">
     <div class="container">
@@ -190,13 +365,20 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
+        <div class="footer-col footer-col-legal">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
         <div class="footer-col">
           <h4>Collections</h4>
           <ul>
-            <li><a href="gallery.html">Senator Suits</a></li>
-            <li><a href="gallery.html">Women's Wear</a></li>
-            <li><a href="gallery.html">Ankara Fabrics</a></li>
-            <li><a href="gallery.html">Accessories</a></li>
+            <li><a href="gallery.html?filter=mens">Senator Suits</a></li>
+            <li><a href="gallery.html?filter=womens">Women's Wear</a></li>
+            <li><a href="gallery.html?filter=womens">Ankara Fabrics</a></li>
+            <li><a href="gallery.html?filter=accessories">Accessories</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -212,6 +394,7 @@
         <p>&copy; 2026 Bianca Fashion Shop. All rights reserved.</p>
         <p>Crafted with elegance</p>
       </div>
+      <p class="footer-developer">This Website Was Developed By Mampotje Mabusela</p>
     </div>
   </footer>
 
